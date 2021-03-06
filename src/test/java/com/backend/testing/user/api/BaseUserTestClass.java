@@ -18,7 +18,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
-public class BaseUserTest {
+public class BaseUserTestClass {
     @Autowired
     @Qualifier("databaseUserDataProvider")
     protected UserDataProvider databaseProvider;

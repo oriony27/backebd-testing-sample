@@ -1,16 +1,18 @@
 package com.backend.testing.user;
 
 import com.backend.testing.dto.UserDto;
-import com.backend.testing.user.api.BaseUserTest;
+import com.backend.testing.user.api.BaseUserTestClass;
 import com.backend.testing.utils.AssertionUtils;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.List;
 
-public class GetAllUsersTest extends BaseUserTest {
+public class GetAllUsersTest extends BaseUserTestClass {
 
     @Test
+    @DisplayName("Get all users with possible offset/limit values.")
     public void getAllUsersPositive() throws IOException {
         int amountOfUsers = userData.getNumberOfRecords();
 

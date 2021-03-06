@@ -1,18 +1,43 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.1.RELEASE'
     id 'java'
+    id 'maven'
+    id 'io.qameta.allure' version '2.8.1'
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
 }
+
+def allureVersion = "2.13.6"
+def junit4Version = "4.12"
+
 
 group 'com.backend.testing'
 version '1.0.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
+
+allure {
+    autoconfigure = true
+    aspectjweaver = true
+    version = allureVersion
+
+    clean = true
+
+    useJUnit4 {
+        version = allureVersion
+    }
+}
+
+
+test {
+    ignoreFailures = true
+    useJUnit {}
+}
+
 repositories {
-    jcenter()
+    mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
-    compile group: 'junit', name: 'junit', version: '4.12'
     implementation group: 'com.squareup.okhttp', name: 'okhttp', version: '2.7.5'
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.4.3'
     implementation group: 'com.google.guava', name: 'guava', version: '30.1-jre'
@@ -22,4 +47,7 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.4.3'
     implementation group: 'org.springframework', name: 'spring-context', version: '5.3.4'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
+
+    compile("junit:junit:$junit4Version")
+    testImplementation("io.qameta.allure:allure-java-commons:$allureVersion")
 }

@@ -1,15 +1,17 @@
 package com.backend.testing.user;
 
 import com.backend.testing.dto.UserDto;
-import com.backend.testing.user.api.BaseUserTest;
+import com.backend.testing.user.api.BaseUserTestClass;
 import com.backend.testing.utils.AssertionUtils;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 import java.io.IOException;
 
-public class UpdateUserTest extends BaseUserTest {
+public class UpdateUserTest extends BaseUserTestClass {
 
     @Test
+    @DisplayName("Update existing user.")
     public void updateUserByIdPositive() throws IOException {
         long userId = userData.getRandomId();
         UserDto userBeforeUpdate = databaseProvider.getUserById(userId);

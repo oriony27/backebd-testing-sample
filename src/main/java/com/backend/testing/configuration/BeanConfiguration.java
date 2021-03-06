@@ -12,7 +12,7 @@ public class BeanConfiguration {
     @Bean
     public OkHttpClient createHttpClient() {
         OkHttpClient client = new OkHttpClient();
-        client.setReadTimeout(2000, TimeUnit.MILLISECONDS);
+        client.setReadTimeout(5, TimeUnit.SECONDS);
         client.setConnectTimeout(1500, TimeUnit.MILLISECONDS);
         client.setWriteTimeout(1500, TimeUnit.MILLISECONDS);
         return client;
